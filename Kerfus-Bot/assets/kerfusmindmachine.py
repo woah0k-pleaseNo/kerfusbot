@@ -8,7 +8,7 @@ from os import listdir
 
 
 
-class KerfusMindMachine(commands.Cog): # handles audio/vc stuff etc.
+class KerfusMindMachine(commands.Cog): # within the dark folds of kerfus's mind
     def __init__(self, bot):
         self.bot = bot
         self.vc = None
