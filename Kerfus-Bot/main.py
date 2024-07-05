@@ -8,7 +8,7 @@ token_read = open('token', 'r')
 token = token_read.read()
 token_read.close()
 
-bot = commands.Bot(command_prefix="-kerfusbrother:", intents=discord.Intents.all(), help_command=None)
+bot = commands.Bot(command_prefix="-kerfus:", intents=discord.Intents.all(), help_command=None)
 run(bot.load_extension(f'assets.kerfusmindmachine'))
 
 connection = connect('assets/kerfusmemorymachine.db')
