@@ -18,13 +18,13 @@ def increment_user_data(ctx, column: str, increment: int)->int:
         return data[0]+increment
 
 
-async def embed_create(bot, ctx, embtitle: str, desc: str, *, thumbnail: str = None, img: str = None, clr = Color.blue()):
-        embmsg = Embed(title=embtitle, description=desc, color=clr)
+async def embed_create(bot, ctx, emb_title: str, desc: str, *, thumbnail: str = None, img: str = None, clr = Color.blue()):
+        embmsg = Embed(title=emb_title, description=desc, color=clr)
         if thumbnail != None:
-            thumbnailimg = File(thumbnail, filename=thumbnail[thumbnail.find('images/')+len('images/'):])
-            embmsg.set_thumbnail(url=f"attachment://{thumbnail[thumbnail.find('images/')+len('images/'):]}")
+            thumbnailimg = File(thumbnail, filename=thumbnail.split('/')[-1])
+            embmsg.set_thumbnail(url=f"attachment://{thumbnail.split('/')[-1]}")
             run_coroutine_threadsafe(ctx.send(file=thumbnailimg, embed=embmsg), bot.loop)
         if img != None:
-            image = File(img, filename=img[img.find('selfies/')+len('selfies/'):])
-            embmsg.set_image(url=f"attachment://{img[img.find('selfies/')+len('selfies/'):]}")
+            image = File(img, filename=img.split('/')[-1])
+            embmsg.set_image(url=f"attachment://{img.split('/')[-1]}")
             run_coroutine_threadsafe(ctx.send(file=image, embed=embmsg), bot.loop)
