@@ -9,7 +9,7 @@ if token == None:
     with open('token', 'r') as f:
         token = f.read()
 
-bot = commands.Bot(command_prefix="-kerfusbrother:", intents=discord.Intents.all(), help_command=None)
+bot = commands.Bot(command_prefix="-kerfus:", intents=discord.Intents.all(), help_command=None)
 run(bot.load_extension(f'assets.kerfusmindmachine'))
 
 connection = connect('assets/kerfusmemorymachine.db')
