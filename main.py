@@ -1,10 +1,13 @@
 import discord
-from sqlite3 import connect
 from discord.ext import commands
+from sqlite3 import connect
 from asyncio import run
+from os import environ
 
-with open('token', 'r') as f:
-    token = f.read()
+token = environ.get('KERFUS_TOKEN')
+if token == None:
+    with open('token', 'r') as f:
+        token = f.read()
 
 bot = commands.Bot(command_prefix="-kerfusbrother:", intents=discord.Intents.all(), help_command=None)
 run(bot.load_extension(f'assets.kerfusmindmachine'))
