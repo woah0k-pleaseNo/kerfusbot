@@ -1,13 +1,15 @@
 import discord
 from discord.ext import commands
 from sqlite3 import connect
+from os.path import isfile
 from asyncio import run
-from os import environ
 
-token = environ.get('KERFUS_TOKEN')
-if token == None:
+if isfile('token'):
     with open('token', 'r') as f:
         token = f.read()
+else:
+    with open('token', 'w') as f:
+        f.write("please replace all this text and put your bot token here (ToT)/~~~ (also please turn your priveleged gateway intents on)")
 
 bot = commands.Bot(command_prefix="-kerfus:", intents=discord.Intents.all(), help_command=None)
 run(bot.load_extension(f'assets.kerfusmindmachine'))
@@ -46,4 +48,9 @@ async def help(ctx):
 
 
 
-bot.run(token)
+try:
+    bot.run(token)
+except discord.errors.LoginFailure:
+    print("You're going to need a valid Discord bot token. Please put a bot token into the 'token' file, found in the same directory as the 'main.py' file.")
+except NameError:
+    print("The, once missing, 'token' file has just been made, please put your Discord bot token in it.")
