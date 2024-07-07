@@ -86,7 +86,6 @@ class KerfusMindMachine(commands.Cog): # within the dark folds of kerfus's mind
 
     @commands.command(aliases=['join', 'pet', 'pat'])
     async def join_command(self, ctx):
-        print(self.songs[randrange(0, len(self.songs))])
         # join vc
         if ctx.author.voice and (self.vc == None or not self.vc.is_connected()):
             self.vc = await ctx.message.author.voice.channel.connect()
