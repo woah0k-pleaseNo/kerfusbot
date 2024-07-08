@@ -77,10 +77,10 @@ class KerfusMindMachine(commands.Cog): # within the dark folds of kerfus's mind
 
     @commands.command(aliases=['songs', 'list', 'songlist', 'listsongs'])
     async def list_command(self, ctx):
-        song_list = f"```The list of {len(self.songs)} songs which Kerfus can sing:\n"
+        song_list = ""
         for s in self.songs:
-            song_list += s[:s.find(".mp3")]+"\n"
-        await ctx.send(song_list+"```")
+            song_list += f"•   {s[:s.find('.mp3')]}\n"
+        await embed_create(self.bot, ctx, f"The list of {len(self.songs)} songs that Kerfus can sing:", song_list, thumbnail='assets/images/kerfuspet.png')
 
 
     @commands.command(aliases=['join', 'pet', 'pat'])
