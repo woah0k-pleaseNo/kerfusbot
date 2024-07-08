@@ -3,6 +3,7 @@ Kerfus loves you o((>ω< ))o
 
 
 you can add 'mp3's to the directory 'assets/audio/songs' and kerfus will be able to sing them
+if you dont want the pre-added songs in the 'songs' folder you can check the 'no-songs' branch
 
 there are currently 46 songs in the 'songs' folder, here is a list of all of them, including the youtube video that they originate from:
 - 'All Star by Smash Mouth - Meowsynth': https://www.youtube.com/watch?v=kEW0wnMooec
